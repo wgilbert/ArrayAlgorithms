@@ -96,13 +96,76 @@ public class ArrayAlgorithms{
 
         /* write a block of code that will determine if the myWords array contains at least one word that starts with the letter ‘t’*/
 
+        boolean containsT = false;
+        String word = "";
+        for(String temp: myWords){
+            if (temp.charAt(0) == 't'){
+                containsT = true;
+                word = temp;
+                break;
+            }
+        }
+        if(containsT){
+            System.out.printf("My Words contains the word %s that starts with the letter t.", word);
+        }else{
+            System.out.println("My words does not have any words that start with the letter t.");
+        }
+
         /* write a block of code that will determine if ALL of the numbers in myInts are positive/*/
 
+        boolean allPositive = true;
+        for(int temp: myInts){
+            if(temp < 0){
+                allPositive = false;
+                break;
+            }
+        }
+        System.out.println("All positive result was: " + allPositive);
+
         /* write a block of code that will determine if any consecutive words in myWords are the same:  “I will will do this” → true*/
+        boolean hasConsecutive = false;
+        String duplicate = "";
+        for(int index = 0; index < myWords.length-1; index++){
+            if(myWords[index].equalsIgnoreCase(myWords[index+1])){
+                hasConsecutive = true;
+                duplicate = myWords[index];
+                break;
+            }
+        }
+        if (!hasConsecutive)
+            System.out.println("No consecutive matches");
+        else
+            System.out.printf("myWords contained at least one consecutive word pair: %s\n", duplicate);
 
         /* write a block of code that will determine if there are any duplicates in myInts */
+        boolean hasDuplicate = false;
+        duplicate = "";
+        for (int i = 0; i < myWords.length-1; i++) {
+            for (int j = i+1; j < myWords.length; j++) {
+                if(myWords[i].equalsIgnoreCase(myWords[j])){
+                    hasDuplicate = true;
+                    duplicate = myWords[i];
+                    break;
+                }
+            }
+            if(hasDuplicate){
+                break;
+            }
+        }
+        if (!hasDuplicate)
+            System.out.println("myWOrds contains no duplicated entries");
+        else
+            System.out.printf("myWords contained at least one duplicated word: %s\n", duplicate);
 
         /* write a block of code that determine how many numbers in MyInts are between 1 and 10 exclusive */
+        int count = 0;
+        for (int temp:myInts) {
+            if(temp >= 1 && temp <= 10){
+                count++;
+                System.out.println("Found a " + temp + ". That makes " + count + "!");
+            }
+        }
 
+        System.out.printf("There are %d numbers in myInts in the range [1,10]\n", count);
     }
 }
