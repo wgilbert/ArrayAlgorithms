@@ -76,7 +76,23 @@ public class ArrayAlgorithms{
         System.out.println("MyInt average: " + ((double)sum/myInts.length));
 
 
-        /* write a block of code that will find the int that occurs most often (mode) inside of myInts */
+        /* write a block of code that will find the int that occurs most often (mode) inside myInts */
+        int most = 0;
+        int quantity = 0;
+        for(int i = 0; i<myInts.length; i++){
+            int count = 0;
+            for(int j = i; j<myInts.length; j++){
+                if(myInts[i] == myInts[j]){
+                    count++;
+                }
+            }
+            if (count > quantity){
+                quantity = count;
+                most = myInts[i];
+            }
+        }
+        System.out.println("The value " + most + " has the most occurrences: " + quantity);
+
 
         /* write a block of code that will determine if the myWords array contains at least one word that starts with the letter ‘t’*/
 
